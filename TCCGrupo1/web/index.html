@@ -11,6 +11,22 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>
+            <button type="button" onclick="javascript:CadastroUsuario();">Abrir usuario</button>
+        </div>
+        
+        <form method="post" action="Servlet" name="frmPrincipal" id="frmPrincipal">
+            <input type="hidden" name="txtObjeto" id="txtObjeto" value="">
+            <input type="hidden" name="txtMetodo" id="txtMetodo" value="">
+        </form>
+    
+    <script>
+        function CadastroUsuario() {
+            document.getElementById("txtObjeto").value = 'Usuario';
+            document.getElementById("txtMetodo").value = 'Cadastro';
+            document.getElementById("frmPrincipal").submit();
+        }
+        
+    </script>
     </body>
 </html>
