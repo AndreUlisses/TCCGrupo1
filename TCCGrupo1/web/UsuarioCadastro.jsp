@@ -16,8 +16,5 @@
             <input type="hidden" name="txtObjeto" id="txtObjeto" value="Usuario">
             <input type="hidden" name="txtMetodo" id="txtMetodo" value="Salvar">
         </form>
-            
-            
-        </form>
     </body>
 </html>
