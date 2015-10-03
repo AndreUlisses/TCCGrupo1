@@ -1,6 +1,6 @@
 package facade;
 
-import DAO1.UsuarioDao;
+import dao.UsuarioDao;
 import Entidade.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
