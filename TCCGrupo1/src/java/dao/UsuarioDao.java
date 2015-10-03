@@ -1,6 +1,6 @@
 package dao;
 
-import Conexao1.ConnectionManager;
+import conexao.ConnectionManager;
 import Entidade.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
