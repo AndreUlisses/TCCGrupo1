@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -50,7 +51,6 @@
                                     <li><a href="javascript:ListarUsuario();">Listar</a></li>
                                 </ul>
                             </li>                            
-
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -58,11 +58,38 @@
         </div>
 
         <div class="container">
-            <h1>Mensagem:</h1>
+            <h1>Lista Usuário</h1>
 
-            <div class="alert alert-error" role="alert">Não foi possivel realizar a operação solicitada.</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>#</td>
+            <td>Nome</td>
+            <td>Email</td>
+            <td>Ação</td>            
+        </tr>
+    </thead>
+    <tbody>
+
+        <c:forEach var="usuario" items="${usuarios}">
+        <tr>
+            <td>${usuario.id}</td>
+            <td>${usuario.nome}</td>
+            <td>${usuario.email}</td>
+            <td>
+                <button type="button" class="btn btn-default btn-xs" onclick="javascript:UsuarioEditar(${usuario.id});">Editar</button>
+                <button type="button" class="btn btn-default btn-xs" onclick="javascript:UsuarioExcluir(${usuario.id});">Excluir</button>
+            </td>            
+        </tr>
+        </c:forEach>
+        
+    </tbody>
+</table>
+
+
 
             <form method="post" action="Servlet" name="frmPrincipal" id="frmPrincipal">
+                <input type="hidden" name="txtId" id="txtId" value="">
                 <input type="hidden" name="txtObjeto" id="txtObjeto" value="">
                 <input type="hidden" name="txtMetodo" id="txtMetodo" value="">
             </form>
@@ -96,6 +123,20 @@
             function ListarUsuario() {
                 document.getElementById("txtObjeto").value = 'Usuario';
                 document.getElementById("txtMetodo").value = 'Listar';
+                document.getElementById("frmPrincipal").submit();
+            }
+
+            function UsuarioEditar(vUsuario) {
+                document.getElementById("txtId").value = vUsuario;
+                document.getElementById("txtObjeto").value = 'Usuario';
+                document.getElementById("txtMetodo").value = 'Editar';
+                document.getElementById("frmPrincipal").submit();
+            }
+
+            function UsuarioExcluir(vUsuario) {
+                document.getElementById("txtId").value = vUsuario;
+                document.getElementById("txtObjeto").value = 'Usuario';
+                document.getElementById("txtMetodo").value = 'Excluir';
                 document.getElementById("frmPrincipal").submit();
             }
 

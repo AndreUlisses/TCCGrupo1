@@ -12,25 +12,27 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UsuarioFacade {
 
-    private Usuario requestForm(HttpServletRequest request){
-        
+    private Usuario requestForm(HttpServletRequest request) {
+
         Usuario retorno = new Usuario();
-        
-        if ((request.getParameter("txtId")!=null)&&(!request.getParameter("txtId").equals(""))) {
+
+        if ((request.getParameter("txtId") != null) && (!request.getParameter("txtId").equals(""))) {
             retorno.setId(Integer.parseInt(request.getParameter("txtId")));
         }
-        if ((request.getParameter("txtNome")!=null)&& (!request.getParameter("txtNome").equals(""))) {
+        if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
             retorno.setNome(request.getParameter("txtNome"));
         }
-        if ((request.getParameter("txtEmail")!=null)&& (!request.getParameter("txtEmail").equals(""))) {
+        if ((request.getParameter("txtEmail") != null) && (!request.getParameter("txtEmail").equals(""))) {
             retorno.setEmail(request.getParameter("txtEmail"));
         }
-        if ((request.getParameter("txtSenha")!=null)&& (!request.getParameter("txtSenha").equals(""))) {
+        if ((request.getParameter("txtSenha") != null) && (!request.getParameter("txtSenha").equals(""))) {
             retorno.setSenha(request.getParameter("txtSenha"));
         }
 
         return retorno;
-    };    
+    }
+
+    ;    
     
     public void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("UsuarioIncluir.jsp");
@@ -42,8 +44,10 @@ public class UsuarioFacade {
         UsuarioDao usuarioDao = new UsuarioDao();
 
         usuario = requestForm(request);
+        usuario = usuarioDao.editar(usuario.getId());
 
-        if (usuarioDao.editar(usuario.getId()) != null) {
+        if (usuario != null) {
+            request.setAttribute("usuario", usuario);
             RequestDispatcher rd = request.getRequestDispatcher("UsuarioEditar.jsp");
             rd.forward(request, response);
         } else {
@@ -89,6 +93,7 @@ public class UsuarioFacade {
         usuarios = usuarioDao.listar();
 
         if (usuarios != null) {
+            request.setAttribute("usuarios", usuarios);
             RequestDispatcher rd = request.getRequestDispatcher("UsuarioListar.jsp");
             rd.forward(request, response);
         } else {

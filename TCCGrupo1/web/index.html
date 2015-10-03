@@ -43,7 +43,13 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="index.html">Principal</a></li>
-                            <li><a href="javascript:CadastroUsuario();">Usuários</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true">Usuários <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:CadastroUsuario();">Incluir</a></li>
+                                    <li><a href="javascript:ListarUsuario();">Listar</a></li>
+                                </ul>
+                            </li>                            
                         </ul>
                     </div><!--/.nav-collapse -->
                 </div>
@@ -68,19 +74,25 @@
         <script src="include/js/bootstrap-modal.js"></script>
         <script src="include/js/bootstrap-dropdown.js"></script>
         <script src="include/js/bootstrap-scrollspy.js"></script>
-        <script src=".include/js/bootstrap-tab.js"></script>
+        <script src="include/js/bootstrap-tab.js"></script>
         <script src="include/js/bootstrap-tooltip.js"></script>
         <script src="include/js/bootstrap-popover.js"></script>
         <script src="include/js/bootstrap-button.js"></script>
         <script src="include/js/bootstrap-collapse.js"></script>
         <script src="include/js/bootstrap-carousel.js"></script>
         <script src="include/js/bootstrap-typeahead.js"></script>
-        
+
         <script>
-            
+
             function CadastroUsuario() {
                 document.getElementById("txtObjeto").value = 'Usuario';
                 document.getElementById("txtMetodo").value = 'Cadastrar';
+                document.getElementById("frmPrincipal").submit();
+            }
+
+            function ListarUsuario() {
+                document.getElementById("txtObjeto").value = 'Usuario';
+                document.getElementById("txtMetodo").value = 'Listar';
                 document.getElementById("frmPrincipal").submit();
             }
 
