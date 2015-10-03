@@ -51,13 +51,35 @@
         </div>
 
         <div class="container">
-            <h1>Mensagem:</h1>
-            
-            <div class="alert alert-error" role="alert">Não foi possivel realizar a operação solicitada.</div>
-            
+            <h1>Adicionar Usuário</h1>
             <form method="post" action="Servlet" name="frmPrincipal" id="frmPrincipal">
-                <input type="hidden" name="txtObjeto" id="txtObjeto" value="">
-                <input type="hidden" name="txtMetodo" id="txtMetodo" value="">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="txtNome">Informe seu nome</label>
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" placeholder="Nome">
+                        </div>    
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="txtEmail">Informe seu email</label>
+                            <input type="email" class="form-control" id="txtEmail" name="txtEmail" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="txtSenha">Informe sua senha</label>
+                            <input type="password" class="form-control" id="txtSenha" name="txtSenha" placeholder="Senha">
+                        </div>
+                    </div>
+                </div>
+                <button type="reset">Limpar</button>
+                <button type="submit">Enviar</button>
+
+                <input type="hidden" name="txtObjeto" id="txtObjeto" value="Usuario">
+                <input type="hidden" name="txtMetodo" id="txtMetodo" value="Salvar">
             </form>
         </div> <!-- /container -->
 

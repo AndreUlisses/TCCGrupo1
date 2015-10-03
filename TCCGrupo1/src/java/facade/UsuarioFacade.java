@@ -23,17 +23,17 @@ public class UsuarioFacade {
             retorno.setNome(request.getParameter("txtNome"));
         }
         if ((request.getParameter("txtEmail")!=null)&& (!request.getParameter("txtEmail").equals(""))) {
-            retorno.setNome(request.getParameter("txtEmail"));
+            retorno.setEmail(request.getParameter("txtEmail"));
         }
         if ((request.getParameter("txtSenha")!=null)&& (!request.getParameter("txtSenha").equals(""))) {
-            retorno.setNome(request.getParameter("txtSenha"));
+            retorno.setSenha(request.getParameter("txtSenha"));
         }
 
         return retorno;
     };    
     
     public void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("UsuarioInclur.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("UsuarioIncluir.jsp");
         rd.forward(request, response);
     }
 

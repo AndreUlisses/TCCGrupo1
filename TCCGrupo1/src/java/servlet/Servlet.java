@@ -17,7 +17,7 @@ public class Servlet extends HttpServlet {
             
             UsuarioFacade usuarioFacade = new UsuarioFacade();
             switch (request.getParameter("txtMetodo")) {
-                case "Cadastro":
+                case "Cadastrar":
                     usuarioFacade.incluir(request, response);
                     break;
                 case "Salvar":
