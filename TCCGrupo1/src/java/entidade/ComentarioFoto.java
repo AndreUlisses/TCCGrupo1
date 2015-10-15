@@ -2,28 +2,30 @@ package entidade;
 
 import java.sql.Date;
 
-public class Comentar_Localidade {
+public class ComentarioFoto {
     
-    private Integer idComentario_Localidade;
-    private Localidade idLocalidade;
+    //TEM QUE FAZER HERANÇA
+    
+    private Integer idComentario;     
+    private Integer idFoto;
     private Usuario idUsuario;
     private String texto;
     private Date dtComentario;
 
-    public Integer getIdComentario_Localidade() {
-        return idComentario_Localidade;
+    public Integer getIdComentario() {
+        return idComentario;
     }
 
-    public void setIdComentario_Localidade(Integer idComentario_Localidade) {
-        this.idComentario_Localidade = idComentario_Localidade;
+    public void setIdComentario(Integer idComentario) {
+        this.idComentario = idComentario;
     }
 
-    public Localidade getIdLocalidade() {
-        return idLocalidade;
+    public Integer getIdFoto() {
+        return idFoto;
     }
 
-    public void setIdLocalidade(Localidade idLocalidade) {
-        this.idLocalidade = idLocalidade;
+    public void setIdFoto(Integer idFoto) {
+        this.idFoto = idFoto;
     }
 
     public Usuario getIdUsuario() {
@@ -50,5 +52,6 @@ public class Comentar_Localidade {
         this.dtComentario = dtComentario;
     }
 
+   
    
 }

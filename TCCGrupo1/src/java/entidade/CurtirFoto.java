@@ -2,7 +2,7 @@ package entidade;
 
 import java.sql.Date;
 
-public class Curtir_Foto {
+public class CurtirFoto {
     
     private Integer idFoto;
     private int idUsuario;

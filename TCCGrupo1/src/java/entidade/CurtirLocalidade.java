@@ -2,7 +2,7 @@ package entidade;
 
 import java.sql.Date;
 
-public class Curtir_Localidade {
+public class CurtirLocalidade {
     
     //TEM QUE FAZER HERANÇA
     
