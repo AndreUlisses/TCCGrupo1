@@ -1,6 +1,8 @@
 package facade;
 
+import dao.AmigoDao;
 import entidade.Amigo;
+import entidade.Usuario;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,15 +18,21 @@ public class AmigoFacade {
         Amigo retorno = new Amigo();
 
         if ((request.getParameter("txtIdAmigo") != null) && (!request.getParameter("txtIdAmigo").equals(""))) {
-            retorno.setIdAmigo(Integer.SIZE);Integer.parseInt(request.getParameter("txtIdAmigo"));
+            Usuario usuario = new Usuario();
+            usuario.setId(Integer.parseInt(request.getParameter("txtIdAmigo")));
+            retorno.setAmigo(usuario);
         }
-            
-       
+        if ((request.getParameter("txtIdUsuario") != null) && (!request.getParameter("txtIdUsuario").equals(""))) {
+            Usuario usuario = new Usuario();
+            usuario.setId(Integer.parseInt(request.getParameter("txtIdUsuario")));
+            retorno.setAmigo(usuario);
+        }
+        if ((request.getParameter("txtSituacao") != null) && (!request.getParameter("txtSituacao").equals(""))) {
+            retorno.setSituacao(request.getParameter("txtSituacao"));
+        }
 
         return retorno;
-    }
-
-    ;    
+    };    
     
     public void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("AmigosIncluir.jsp");
@@ -33,12 +41,11 @@ public class AmigoFacade {
 
     public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Amigo amigo = new Amigo();
-        // FALTA O DAO
-        UsuarioDao amigoDao = new UsuarioDao();
+        AmigoDao amigoDao = new AmigoDao();
 
         amigo = requestForm(request);
-        // FALTA O DAO
-        amigo = usuarioDao.editar(amigo.getIdAmigo());
+
+        amigo = amigoDao.editar(amigo);
 
         if (amigo != null) {
             request.setAttribute("amigo", amigo);
@@ -52,12 +59,11 @@ public class AmigoFacade {
 
     public void salvar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Amigo amigo = new Amigo();
-        // FALTA O DAO
-        UsuarioDao usuarioDao = new UsuarioDao();
+        AmigoDao amigoDao = new AmigoDao();
 
         amigo = requestForm(request);
 
-        if (usuarioDao.salvar(amigo) == -1) {
+        if (amigoDao.salvar(amigo) == -1) {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
             rd.forward(request, response);
         } else {
@@ -68,12 +74,11 @@ public class AmigoFacade {
 
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Amigo amigo = new Amigo();
-        // FALTA O DAO
-        UsuarioDao usuarioDao = new UsuarioDao();
+        AmigoDao amigoDao = new AmigoDao();
 
         amigo = requestForm(request);
-        // FALTA O DAO
-        if (usuarioDao.excluir(amigo)) {
+
+        if (amigoDao.excluir(amigo)) {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemOk.jsp");
             rd.forward(request, response);
         } else {
@@ -83,12 +88,28 @@ public class AmigoFacade {
     }
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // FALTA O DAO
-        UsuarioDao usuarioDao = new UsuarioDao();
+        AmigoDao usuarioDao = new AmigoDao();
 
         List<Amigo> amigos = new ArrayList<Amigo>();
-        // FALTA O DAO
         amigos = usuarioDao.listar();
+
+        if (amigos != null) {
+            request.setAttribute("amigos", amigos);
+            RequestDispatcher rd = request.getRequestDispatcher("AmigoListar.jsp");
+            rd.forward(request, response);
+        } else {
+            RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
+            rd.forward(request, response);
+        }
+    }
+
+    public void listaAmigos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        AmigoDao usuarioDao = new AmigoDao();
+        Amigo amigo = requestForm(request);
+
+        List<Amigo> amigos = new ArrayList<Amigo>();
+        amigos = usuarioDao.listaAmigos(amigo.getUsuario().getId());
 
         if (amigos != null) {
             request.setAttribute("amigos", amigos);

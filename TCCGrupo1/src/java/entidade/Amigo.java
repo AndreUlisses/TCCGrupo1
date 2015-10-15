@@ -2,41 +2,32 @@ package entidade;
 
 public class Amigo{
     
-   private Integer idAmigo;
-   private Usuario idUsuario;
-   private Enum pendente, confirmado; 
+   private Usuario amigo;
+   private Usuario usuario;
+   private String situacao; 
 
-    public Integer getIdAmigo() {
-        return idAmigo;
+    public Usuario getAmigo() {
+        return amigo;
     }
 
-    public void setIdAmigo(Integer idAmigo) {
-        this.idAmigo = idAmigo;
+    public void setAmigo(Usuario amigo) {
+        this.amigo = amigo;
     }
 
-    public Usuario getIdUsuario() {
-        return idUsuario;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setIdUsuario(Usuario idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Enum getPendente() {
-        return pendente;
+    public String getSituacao() {
+        return situacao;
     }
 
-    public void setPendente(Enum pendente) {
-        this.pendente = pendente;
+    public void setSituacao(String situacao) {
+        this.situacao = situacao;
     }
 
-    public Enum getConfirmado() {
-        return confirmado;
-    }
-
-    public void setConfirmado(Enum confirmado) {
-        this.confirmado = confirmado;
-    }
-
-   
 }

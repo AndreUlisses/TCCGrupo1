@@ -3,6 +3,7 @@ package facade;
 import dao.UsuarioDao;
 import entidade.Usuario;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -17,25 +18,28 @@ public class UsuarioFacade {
         Usuario retorno = new Usuario();
 
         if ((request.getParameter("txtIdUsuario") != null) && (!request.getParameter("txtIdUsuario").equals(""))) {
-            retorno.setIdUsuario(Integer.parseInt(request.getParameter("txtIdUsuario")));
+            retorno.setId(Integer.parseInt(request.getParameter("txtIdUsuario")));
         }
         if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
             retorno.setNome(request.getParameter("txtNome"));
         }
-        if ((request.getParameter("txtdataNascimento") != null) && (!request.getParameter("txtdataNascimento").equals(""))) {
-          //conversão para Date! //retorno.setDataNascimento(request.getParameter("txtdataNascimento"));
-        } 
-        if((request.getParameter("txtSexo") != null) && (!request.getParameter("txtSexo").equals(""))) {
-          //conversão para Boolean! //retorno.setSexo(request.getParameter("txtSexo"));
-        }
-        if((request.getParameter("txtUser") != null) && (!request.getParameter("txtUser").equals(""))) {
-           retorno.setUser(request.getParameter("txtUser"));
-        }     
         if ((request.getParameter("txtEmail") != null) && (!request.getParameter("txtEmail").equals(""))) {
             retorno.setEmail(request.getParameter("txtEmail"));
         }
         if ((request.getParameter("txtSenha") != null) && (!request.getParameter("txtSenha").equals(""))) {
             retorno.setSenha(request.getParameter("txtSenha"));
+        }
+        if ((request.getParameter("txtSexo") != null) && (!request.getParameter("txtSexo").equals(""))) {
+            retorno.setSexo(request.getParameter("txtSexo"));
+        }
+        if ((request.getParameter("txtDtNascimento") != null) && (!request.getParameter("txtDtNascimento").equals(""))) {
+            try {
+                SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                retorno.setDtNascimento(new java.sql.Date(formato.parse(request.getParameter("txtDtNascimento")).getTime()));
+            } catch (Exception ex) {
+                retorno.setDtNascimento(null);
+            }
+
         }
 
         return retorno;
@@ -53,7 +57,7 @@ public class UsuarioFacade {
         UsuarioDao usuarioDao = new UsuarioDao();
 
         usuario = requestForm(request);
-        usuario = usuarioDao.editar(usuario.getIdUsuario());
+        usuario = usuarioDao.editar(usuario.getId());
 
         if (usuario != null) {
             request.setAttribute("usuario", usuario);

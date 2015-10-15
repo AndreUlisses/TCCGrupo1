@@ -1,23 +1,23 @@
 package entidade;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Usuario {
 
-    private Integer idUsuario;
+    private Integer id;
     private String nome;
-    private Date dtNascimento;
-    private boolean sexo;
-    private String user;
     private String email;
     private String senha;
+    private String sexo;
+    private Date dtNascimento;
 
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -26,30 +26,6 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public Date getDtNascimento() {
-        return dtNascimento;
-    }
-
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
-    public boolean isSexo() {
-        return sexo;
-    }
-
-    public void setSexo(boolean sexo) {
-        this.sexo = sexo;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     public String getEmail() {
@@ -67,7 +43,22 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
 
-    
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
+
+    public Date getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
 }
+
