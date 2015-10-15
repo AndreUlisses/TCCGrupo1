@@ -13,7 +13,7 @@ public class Usuario {
     private String senha;
     
 
-        public String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -41,7 +41,6 @@ public class Usuario {
         return user;
     }
 
-    //Usuário, senha, e-mail, nome, sobrenome, data de nascimento, sexo, foto do perfil.
     public void setUser(String user) {
         this.user = user;
     }
