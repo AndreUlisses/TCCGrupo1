@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Usuario {
 
-    private Integer id;
+    private Integer idUsuario;
     private String nome;
     private Date dataNascimento;
     private boolean sexo;
@@ -13,7 +13,7 @@ public class Usuario {
     private String senha;
     
 
-        public String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -41,18 +41,17 @@ public class Usuario {
         return user;
     }
 
-    //Usuário, senha, e-mail, nome, sobrenome, data de nascimento, sexo, foto do perfil.
     public void setUser(String user) {
         this.user = user;
     }
     
     
-    public Integer getId() {
-        return id;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idUsuario = id;
     }
 
     public String getEmail() {

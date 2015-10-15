@@ -23,7 +23,7 @@ public class UsuarioDao {
             String QUERY_INSERT = "insert into USUARIO (nome, email, senha) values (?, ?, ?)";
             String QUERY_UPDATE = "update USUARIO set nome = ?, email = ?, senha = ? where idusuario = ? ";
 
-            if (usuario.getId() == null) {
+            if (usuario.getIdUsuario()== null) {
                 
                 stmt = conn.prepareStatement(QUERY_INSERT, Statement.RETURN_GENERATED_KEYS);
                 stmt.setString(1, usuario.getNome());
@@ -44,10 +44,10 @@ public class UsuarioDao {
                 stmt.setString(1, usuario.getNome());
                 stmt.setString(2, usuario.getEmail());
                 stmt.setString(3, usuario.getSenha());
-                stmt.setInt(4, usuario.getId());
+                stmt.setInt(4, usuario.getIdUsuario());
 
                 stmt.executeUpdate();
-                resultado = usuario.getId(); // alterei aqui pra ficar igual ao do ProfessorDAO
+                resultado = usuario.getIdUsuario(); // alterei aqui pra ficar igual ao do ProfessorDAO
             }
 
             conn.close();
@@ -73,7 +73,7 @@ public class UsuarioDao {
             String QUERY_DELETE = "delete from USUARIO where idusuario = ?";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
-            stmt.setInt(1, usuario.getId());
+            stmt.setInt(1, usuario.getIdUsuario());
 
             stmt.executeUpdate();
             conn.close();
