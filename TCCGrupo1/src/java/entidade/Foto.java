@@ -4,32 +4,32 @@ public class Foto {
     
     //TEM QUE FAZER HERANÇA
     
-    private int idFoto;
-    private int idLocalidade;
-    private int idUsuario;
+    private Integer idFoto;
+    private Localidade idLocalidade;
+    private Usuario idUsuario;
     private String descricao;
 
-    public int getIdFoto() {
+    public Integer getIdFoto() {
         return idFoto;
     }
 
-    public void setIdFoto(int idFoto) {
+    public void setIdFoto(Integer idFoto) {
         this.idFoto = idFoto;
     }
 
-    public int getIdLocalidade() {
+    public Localidade getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(int idLocalidade) {
+    public void setIdLocalidade(Localidade idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
-    public int getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -40,5 +40,6 @@ public class Foto {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     
 }

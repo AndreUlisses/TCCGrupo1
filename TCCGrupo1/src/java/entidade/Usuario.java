@@ -6,12 +6,19 @@ public class Usuario {
 
     private Integer idUsuario;
     private String nome;
-    private Date dataNascimento;
+    private Date dtNascimento;
     private boolean sexo;
     private String user;
     private String email;
     private String senha;
-    
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getNome() {
         return nome;
@@ -21,12 +28,12 @@ public class Usuario {
         this.nome = nome;
     }
 
-    public Date getDataNascimento() {
-        return dataNascimento;
+    public Date getDtNascimento() {
+        return dtNascimento;
     }
 
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
     }
 
     public boolean isSexo() {
@@ -44,15 +51,6 @@ public class Usuario {
     public void setUser(String user) {
         this.user = user;
     }
-    
-    
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setId(Integer id) {
-        this.idUsuario = id;
-    }
 
     public String getEmail() {
         return email;
@@ -67,7 +65,9 @@ public class Usuario {
     }
 
     public void setSenha(String senha) {
-        this.senha = senha; 
+        this.senha = senha;
     }
+    
+
     
 }

@@ -4,15 +4,15 @@ import java.sql.Date;
 
 public class Curtir_Foto {
     
-    private int idFoto;
+    private Integer idFoto;
     private int idUsuario;
-    private Date dt_Curtir;
+    private Date dtCurtir;
 
-    public int getIdFoto() {
+    public Integer getIdFoto() {
         return idFoto;
     }
 
-    public void setIdFoto(int idFoto) {
+    public void setIdFoto(Integer idFoto) {
         this.idFoto = idFoto;
     }
 
@@ -25,14 +25,13 @@ public class Curtir_Foto {
     }
 
     public Date getDt_Curtir() {
-        return dt_Curtir;
+        return dtCurtir;
     }
 
     public void setDt_Curtir(Date dt_Curtir) {
-        this.dt_Curtir = dt_Curtir;
+        this.dtCurtir = dt_Curtir;
     }
-    
-    
-    
+
+      
     
 }

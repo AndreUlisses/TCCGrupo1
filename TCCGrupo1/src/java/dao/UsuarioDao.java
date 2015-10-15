@@ -108,7 +108,7 @@ public class UsuarioDao {
 
             while (rs.next()) {
                 usuario = new Usuario();
-                usuario.setId(rs.getInt("idUsuario"));
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
@@ -139,7 +139,7 @@ public class UsuarioDao {
 
             while (rs.next()) {
                 Usuario usuario = new Usuario();
-                usuario.setId(rs.getInt("idUsuario"));
+                usuario.setIdUsuario(rs.getInt("idUsuario"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));

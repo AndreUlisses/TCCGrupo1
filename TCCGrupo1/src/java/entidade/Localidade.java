@@ -4,20 +4,20 @@ import java.sql.Date;
 
 public class Localidade {
 
-    private int idLocalidade;
+    private Integer idLocalidade;
     private Categoria idCategoria;
     private Usuario idUsuario;
-    private String nomeLocalidade;
-    private String descricaoLocalidade;
+    private String nome;
+    private String descricao;
     private Date dtLocalidade;
                     
     //GET&SET
 
-    public int getIdLocalidade() {
+    public Integer getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(int idLocalidade) {
+    public void setIdLocalidade(Integer idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
@@ -37,20 +37,20 @@ public class Localidade {
         this.idUsuario = idUsuario;
     }
 
-    public String getNomeLocalidade() {
-        return nomeLocalidade;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeLocalidade(String nomeLocalidade) {
-        this.nomeLocalidade = nomeLocalidade;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getDescricaoLocalidade() {
-        return descricaoLocalidade;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricaoLocalidade(String descricaoLocalidade) {
-        this.descricaoLocalidade = descricaoLocalidade;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Date getDtLocalidade() {
@@ -60,6 +60,6 @@ public class Localidade {
     public void setDtLocalidade(Date dtLocalidade) {
         this.dtLocalidade = dtLocalidade;
     }
-   
-    
+
+  
 }

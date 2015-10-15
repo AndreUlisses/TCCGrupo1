@@ -5,32 +5,32 @@ import java.sql.Date;
 public class Comentar_Localidade {
     
     private Integer idComentario_Localidade;
-    private Integer idLocalidade;
-    private Integer idUsuario;
+    private Localidade idLocalidade;
+    private Usuario idUsuario;
     private String texto;
-    private Date data_Comentario;
+    private Date dtComentario;
 
     public Integer getIdComentario_Localidade() {
         return idComentario_Localidade;
     }
 
-    public void setIdComentario_Localidade(int idComentario_Localidade) {
+    public void setIdComentario_Localidade(Integer idComentario_Localidade) {
         this.idComentario_Localidade = idComentario_Localidade;
     }
 
-    public Integer getIdLocalidade() {
+    public Localidade getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(Integer idLocalidade) {
+    public void setIdLocalidade(Localidade idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
-    public Integer getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -42,13 +42,13 @@ public class Comentar_Localidade {
         this.texto = texto;
     }
 
-    public Date getData_Comentario() {
-        return data_Comentario;
+    public Date getDtComentario() {
+        return dtComentario;
     }
 
-    public void setData_Comentario(Date data_Comentario) {
-        this.data_Comentario = data_Comentario;
+    public void setDtComentario(Date dtComentario) {
+        this.dtComentario = dtComentario;
     }
-    
-    
+
+   
 }

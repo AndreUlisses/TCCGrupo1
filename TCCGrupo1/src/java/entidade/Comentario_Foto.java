@@ -8,9 +8,9 @@ public class Comentario_Foto {
     
     private Integer idComentario;     
     private Integer idFoto;
-    private Integer idUsuario;
+    private Usuario idUsuario;
     private String texto;
-    private Date dt_Comentario;
+    private Date dtComentario;
 
     public Integer getIdComentario() {
         return idComentario;
@@ -28,11 +28,11 @@ public class Comentario_Foto {
         this.idFoto = idFoto;
     }
 
-    public Integer getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(Integer idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -44,13 +44,14 @@ public class Comentario_Foto {
         this.texto = texto;
     }
 
-    public Date getDt_Comentario() {
-        return dt_Comentario;
+    public Date getDtComentario() {
+        return dtComentario;
     }
 
-    public void setDt_Comentario(Date dt_Comentario) {
-        this.dt_Comentario = dt_Comentario;
+    public void setDtComentario(Date dtComentario) {
+        this.dtComentario = dtComentario;
     }
 
+   
    
 }

@@ -17,7 +17,7 @@ public class UsuarioFacade {
         Usuario retorno = new Usuario();
 
         if ((request.getParameter("txtIdUsuario") != null) && (!request.getParameter("txtIdUsuario").equals(""))) {
-            retorno.setId(Integer.parseInt(request.getParameter("txtIdUsuario")));
+            retorno.setIdUsuario(Integer.parseInt(request.getParameter("txtIdUsuario")));
         }
         if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
             retorno.setNome(request.getParameter("txtNome"));

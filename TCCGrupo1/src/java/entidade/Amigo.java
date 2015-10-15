@@ -3,16 +3,8 @@ package entidade;
 public class Amigo{
     
    private Integer idAmigo;
-   private Integer idUsuario;
+   private Usuario idUsuario;
    private Enum pendente, confirmado; 
-
-    public Integer getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
-    }
 
     public Integer getIdAmigo() {
         return idAmigo;
@@ -20,6 +12,14 @@ public class Amigo{
 
     public void setIdAmigo(Integer idAmigo) {
         this.idAmigo = idAmigo;
+    }
+
+    public Usuario getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Usuario idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public Enum getPendente() {
@@ -37,6 +37,6 @@ public class Amigo{
     public void setConfirmado(Enum confirmado) {
         this.confirmado = confirmado;
     }
-   
+
    
 }

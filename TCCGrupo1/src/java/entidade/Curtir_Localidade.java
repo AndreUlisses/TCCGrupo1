@@ -6,32 +6,33 @@ public class Curtir_Localidade {
     
     //TEM QUE FAZER HERANÇA
     
-    private int idLocalidade;
-    private int idUsuario;
-    private Date dt_Curtir;
+    private Integer idLocalidade;
+    private Usuario idUsuario;
+    private Date dtCurtir;
 
-    public int getIdLocalidade() {
+    public Integer getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(int idLocalidade) {
+    public void setIdLocalidade(Integer idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
-    public int getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Date getDt_Curtir() {
-        return dt_Curtir;
+    public Date getDtCurtir() {
+        return dtCurtir;
     }
 
-    public void setDt_Curtir(Date dt_Curtir) {
-        this.dt_Curtir = dt_Curtir;
+    public void setDtCurtir(Date dtCurtir) {
+        this.dtCurtir = dtCurtir;
     }
-    
+
+
 }

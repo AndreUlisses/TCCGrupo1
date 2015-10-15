@@ -4,36 +4,36 @@ import java.sql.Date;
 
 public class Ponto {
     
-    private int idPonto;
-    private int idLocalidade;
-    private int idUsuario;
+    private Integer idPonto;
+    private Localidade idLocalidade;
+    private Usuario idUsuario;
     private String descricao;
     private float latitude;
     private float longitude;
     private float altitude;
-    private Date dt_ponto;
+    private Date dtPonto;
 
-    public int getIdPonto() {
+    public Integer getIdPonto() {
         return idPonto;
     }
 
-    public void setIdPonto(int idPonto) {
+    public void setIdPonto(Integer idPonto) {
         this.idPonto = idPonto;
     }
 
-    public int getIdLocalidade() {
+    public Localidade getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(int idLocalidade) {
+    public void setIdLocalidade(Localidade idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
-    public int getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -69,12 +69,13 @@ public class Ponto {
         this.altitude = altitude;
     }
 
-    public Date getDt_ponto() {
-        return dt_ponto;
+    public Date getDtPonto() {
+        return dtPonto;
     }
 
-    public void setDt_ponto(Date dt_ponto) {
-        this.dt_ponto = dt_ponto;
+    public void setDtPonto(Date dtPonto) {
+        this.dtPonto = dtPonto;
     }
-    
+
+   
 }
