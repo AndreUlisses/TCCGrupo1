@@ -19,26 +19,7 @@ public class AmigoFacade {
             retorno.setIdAmigo(Integer.SIZE);Integer.parseInt(request.getParameter("txtIdAmigo"));
         }
             
-        
-        
-        if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
-            retorno.setNome(request.getParameter("txtNome"));
-        }
-        if ((request.getParameter("txtdataNascimento") != null) && (!request.getParameter("txtdataNascimento").equals(""))) {
-          //conversão para Date! //retorno.setDataNascimento(request.getParameter("txtdataNascimento"));
-        } 
-        if((request.getParameter("txtSexo") != null) && (!request.getParameter("txtSexo").equals(""))) {
-          //conversão para Boolean! //retorno.setSexo(request.getParameter("txtSexo"));
-        }
-        if((request.getParameter("txtUser") != null) && (!request.getParameter("txtUser").equals(""))) {
-           retorno.setUser(request.getParameter("txtUser"));
-        }     
-        if ((request.getParameter("txtEmail") != null) && (!request.getParameter("txtEmail").equals(""))) {
-            retorno.setEmail(request.getParameter("txtEmail"));
-        }
-        if ((request.getParameter("txtSenha") != null) && (!request.getParameter("txtSenha").equals(""))) {
-            retorno.setSenha(request.getParameter("txtSenha"));
-        }
+       
 
         return retorno;
     }
