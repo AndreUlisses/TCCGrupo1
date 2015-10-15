@@ -2,6 +2,8 @@ package entidade;
 
 public class Foto {
     
+    //TEM QUE FAZER HERANÇA
+    
     private int idFoto;
     private int idLocalidade;
     private int idUsuario;

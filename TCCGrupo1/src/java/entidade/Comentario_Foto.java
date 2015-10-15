@@ -4,6 +4,8 @@ import java.sql.Date;
 
 public class Comentario_Foto {
     
+    //TEM QUE FAZER HERANÇA
+    
     private int idComentario;
     private int idFoto;
     private int idUsuario;
