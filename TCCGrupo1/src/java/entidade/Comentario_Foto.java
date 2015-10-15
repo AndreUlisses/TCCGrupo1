@@ -6,33 +6,33 @@ public class Comentario_Foto {
     
     //TEM QUE FAZER HERANÇA
     
-    private int idComentario;     
-    private int idFoto;
-    private int idUsuario;
+    private Integer idComentario;     
+    private Integer idFoto;
+    private Integer idUsuario;
     private String texto;
     private Date dt_Comentario;
 
-    public int getIdComentario() {
+    public Integer getIdComentario() {
         return idComentario;
     }
 
-    public void setIdComentario(int idComentario) {
+    public void setIdComentario(Integer idComentario) {
         this.idComentario = idComentario;
     }
 
-    public int getIdFoto() {
+    public Integer getIdFoto() {
         return idFoto;
     }
 
-    public void setIdFoto(int idFoto) {
+    public void setIdFoto(Integer idFoto) {
         this.idFoto = idFoto;
     }
 
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
@@ -51,5 +51,6 @@ public class Comentario_Foto {
     public void setDt_Comentario(Date dt_Comentario) {
         this.dt_Comentario = dt_Comentario;
     }
-    
+
+   
 }
