@@ -6,7 +6,7 @@ public class Amigo {
    
    private int idAmigo;
    private int idUsuario;
-   private Enum pendente, confirmado;
+   private Enum pendente, confirmado; 
 
     public int getIdAmigo() {
         return idAmigo;
