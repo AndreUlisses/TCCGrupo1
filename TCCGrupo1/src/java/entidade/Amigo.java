@@ -2,23 +2,23 @@ package entidade;
 
 public class Amigo{
     
-   private int idAmigo;
-   private int idUsuario;
+   private Integer idAmigo;
+   private Integer idUsuario;
    private Enum pendente, confirmado; 
 
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public int getIdAmigo() {
+    public Integer getIdAmigo() {
         return idAmigo;
     }
 
-    public void setIdAmigo(int idAmigo) {
+    public void setIdAmigo(Integer idAmigo) {
         this.idAmigo = idAmigo;
     }
 

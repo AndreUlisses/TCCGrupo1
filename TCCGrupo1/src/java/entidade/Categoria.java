@@ -2,26 +2,26 @@ package entidade;
 
 public class Categoria {
    
-    private  int idCategoria;
-    private String Nome;
-    private  String descricao;
+    private Integer idCategoria;
+    private String nome;
+    private String descricao;
     
     //GET&SET
     
-    public int getIdCategoria() {
+    public Integer getIdCategoria() {
         return idCategoria;
     }
 
-    public void setIdCategoria(int idCategoria) {
+    public void setIdCategoria(Integer idCategoria) {
         this.idCategoria = idCategoria;
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String Nome) {
-        this.Nome = Nome;
+        this.nome = Nome;
     }
 
     public String getDescricao() {

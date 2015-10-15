@@ -4,13 +4,13 @@ import java.sql.Date;
 
 public class Comentar_Localidade {
     
-    private int idComentario_Localidade;
-    private int idLocalidade;
-    private int idUsuario;
+    private Integer idComentario_Localidade;
+    private Integer idLocalidade;
+    private Integer idUsuario;
     private String texto;
     private Date data_Comentario;
 
-    public int getIdComentario_Localidade() {
+    public Integer getIdComentario_Localidade() {
         return idComentario_Localidade;
     }
 
@@ -18,19 +18,19 @@ public class Comentar_Localidade {
         this.idComentario_Localidade = idComentario_Localidade;
     }
 
-    public int getIdLocalidade() {
+    public Integer getIdLocalidade() {
         return idLocalidade;
     }
 
-    public void setIdLocalidade(int idLocalidade) {
+    public void setIdLocalidade(Integer idLocalidade) {
         this.idLocalidade = idLocalidade;
     }
 
-    public int getIdUsuario() {
+    public Integer getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Integer idUsuario) {
         this.idUsuario = idUsuario;
     }
 
