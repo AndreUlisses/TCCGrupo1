@@ -18,6 +18,9 @@ public class AmigoFacade {
         if ((request.getParameter("txtIdAmigo") != null) && (!request.getParameter("txtIdAmigo").equals(""))) {
             retorno.setIdAmigo(Integer.SIZE);Integer.parseInt(request.getParameter("txtIdAmigo"));
         }
+            
+        
+        
         if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
             retorno.setNome(request.getParameter("txtNome"));
         }
@@ -43,7 +46,7 @@ public class AmigoFacade {
     ;    
     
     public void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("UsuarioIncluir.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("AmigosIncluir.jsp");
         rd.forward(request, response);
     }
 
