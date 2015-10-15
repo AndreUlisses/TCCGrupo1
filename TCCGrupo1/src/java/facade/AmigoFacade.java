@@ -2,6 +2,8 @@ package facade;
 
 import entidade.Amigo;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -47,6 +49,7 @@ public class AmigoFacade {
 
     public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Amigo amigo = new Amigo();
+        // FALTA O DAO
         UsuarioDao amigoDao = new UsuarioDao();
 
         amigo = requestForm(request);
@@ -65,6 +68,7 @@ public class AmigoFacade {
 
     public void salvar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Amigo amigo = new Amigo();
+        // FALTA O DAO
         UsuarioDao usuarioDao = new UsuarioDao();
 
         amigo = requestForm(request);
@@ -79,12 +83,13 @@ public class AmigoFacade {
     }
 
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Usuario usuario = new Usuario();
+        Amigo amigo = new Amigo();
+        // FALTA O DAO
         UsuarioDao usuarioDao = new UsuarioDao();
 
-        usuario = requestForm(request);
-
-        if (usuarioDao.excluir(usuario)) {
+        amigo = requestForm(request);
+        // FALTA O DAO
+        if (usuarioDao.excluir(amigo)) {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemOk.jsp");
             rd.forward(request, response);
         } else {
@@ -94,14 +99,16 @@ public class AmigoFacade {
     }
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // FALTA O DAO
         UsuarioDao usuarioDao = new UsuarioDao();
 
-        List<Usuario> usuarios = new ArrayList<Usuario>();
-        usuarios = usuarioDao.listar();
+        List<Amigo> amigos = new ArrayList<Amigo>();
+        // FALTA O DAO
+        amigos = usuarioDao.listar();
 
-        if (usuarios != null) {
-            request.setAttribute("usuarios", usuarios);
-            RequestDispatcher rd = request.getRequestDispatcher("UsuarioListar.jsp");
+        if (amigos != null) {
+            request.setAttribute("amigos", amigos);
+            RequestDispatcher rd = request.getRequestDispatcher("AmigoListar.jsp");
             rd.forward(request, response);
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
