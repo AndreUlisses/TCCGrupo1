@@ -1,6 +1,6 @@
 package entidade;
 
-public class Amigo {
+public class Amigo extends Usuario{
    
    //TEM QUE FAZER HERANÇA
    
@@ -14,14 +14,6 @@ public class Amigo {
 
     public void setIdAmigo(int idAmigo) {
         this.idAmigo = idAmigo;
-    }
-
-    public int getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
     }
 
     public Enum getPendente() {

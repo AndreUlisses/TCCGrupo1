@@ -16,8 +16,8 @@ public class UsuarioFacade {
 
         Usuario retorno = new Usuario();
 
-        if ((request.getParameter("txtId") != null) && (!request.getParameter("txtId").equals(""))) {
-            retorno.setId(Integer.parseInt(request.getParameter("txtId")));
+        if ((request.getParameter("txtIdUsuario") != null) && (!request.getParameter("txtIdUsuario").equals(""))) {
+            retorno.setId(Integer.parseInt(request.getParameter("txtIdUsuario")));
         }
         if ((request.getParameter("txtNome") != null) && (!request.getParameter("txtNome").equals(""))) {
             retorno.setNome(request.getParameter("txtNome"));
@@ -44,7 +44,7 @@ public class UsuarioFacade {
         UsuarioDao usuarioDao = new UsuarioDao();
 
         usuario = requestForm(request);
-        usuario = usuarioDao.editar(usuario.getId());
+        usuario = usuarioDao.editar(usuario.getIdUsuario());
 
         if (usuario != null) {
             request.setAttribute("usuario", usuario);

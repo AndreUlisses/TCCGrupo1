@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Usuario {
 
-    private Integer id;
+    private Integer idUsuario;
     private String nome;
     private Date dataNascimento;
     private boolean sexo;
@@ -47,12 +47,12 @@ public class Usuario {
     }
     
     
-    public Integer getId() {
-        return id;
+    public Integer getIdUsuario() {
+        return idUsuario;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.idUsuario = id;
     }
 
     public String getEmail() {
