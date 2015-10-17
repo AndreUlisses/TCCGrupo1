@@ -20,8 +20,8 @@ public class LocalidadeDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
             
-            String QUERY_INSERT = "insert into LOCALIDADE (IDLOCALIDADE,IDCATEGORIA,IDUSUARIO,NOME,DESCRICAO,DTLOCALIDADE) values (?, ?, ?, ?, ?, ?)";
-            String QUERY_UPDATE = "update LOCALIDADE set IDCATEGORIA = ?, IDUSUARIO = ?, NOME = ?, DESCRICAO = ?, DTLOCALIDADE = ? where IDLOCALIDADE = ? ";
+            String QUERY_INSERT = "insert into LOCALIDADE (IDLOCALIDADE,IDCATEGORIA,IDUSUARIO,NOME,DESCRICAO,DT_LOCALIDADE) values (?, ?, ?, ?, ?, ?)";
+            String QUERY_UPDATE = "update LOCALIDADE set IDCATEGORIA = ?, IDUSUARIO = ?, NOME = ?, DESCRICAO = ?, DT_LOCALIDADE = ? where IDLOCALIDADE = ? ";
 
             //verificar comparação
             if (localidade.getIdLocalidade()== null) {
@@ -111,6 +111,7 @@ public class LocalidadeDao {
                 localidade.setIdLocalidade(rs.getInt("IDLOCALIDADE"));
                 localidade.setNome(rs.getString("NOME"));
                 localidade.setDescricao(rs.getString("DESCRICAO"));
+                localidade.setDtLocalidade(rs.getDate("DT_LOCALIDADE"));
             }
             conn.close();
 
@@ -141,6 +142,7 @@ public class LocalidadeDao {
                 localidade.setIdLocalidade(rs.getInt("IDLOCALIDADE"));
                 localidade.setNome(rs.getString("NOME"));
                 localidade.setDescricao(rs.getString("DESCRICAO"));
+                localidade.setDtLocalidade(rs.getDate("DT_LOCALIDADE"));
                 lista.add(localidade);
             }
             conn.close();
