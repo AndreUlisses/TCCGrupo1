@@ -5,7 +5,7 @@ import java.sql.Date;
 public class CurtirFoto {
     
     private Integer idFoto;
-    private int idUsuario;
+    private Usuario idUsuario;
     private Date dtCurtir;
 
     public Integer getIdFoto() {
@@ -16,22 +16,22 @@ public class CurtirFoto {
         this.idFoto = idFoto;
     }
 
-    public int getIdUsuario() {
+    public Usuario getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(int idUsuario) {
+    public void setIdUsuario(Usuario idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Date getDt_Curtir() {
+    public Date getDtCurtir() {
         return dtCurtir;
     }
 
-    public void setDt_Curtir(Date dt_Curtir) {
-        this.dtCurtir = dt_Curtir;
+    public void setDtCurtir(Date dtCurtir) {
+        this.dtCurtir = dtCurtir;
     }
 
-      
-    
+   
+  
 }
