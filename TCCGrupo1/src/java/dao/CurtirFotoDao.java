@@ -4,6 +4,10 @@ import conexao.ConnectionManager;
 import entidade.CurtirFoto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CurtirFotoDao {
     
@@ -17,14 +21,12 @@ public class CurtirFotoDao {
             Connection conn = ConnectionManager.getConnection();
             
             String QUERY_INSERT = "insert into CURTIR_FOTO (IDFOTO,IDUSUARIO,DT_CURTIR) values (?, ?, ?)";
-            String QUERY_UPDATE = "update COMENTAR_FOTO set IDFOTO = ?, IDUSUARIO = ?, TEXTO = ?, DT_COMENTARIO = ? where IDCOMENTARIO_FOTO = ? ";
+            String QUERY_UPDATE = "update CURTIR_FOTO set IDFOTO = ?, IDUSUARIO = ?, TEXTO = ?, DT_COMENTARIO = ? where IDCOMENTARIO_FOTO = ? ";
 
-            //verificar comparação
-            if (curtirfoto.getIdComentario()== null) {
+            if ((curtirfoto.getIdUsuario().getId() == null)&&(curtirfoto.getIdUsuario().getId() == null)) {
                 
                 stmt = conn.prepareStatement(QUERY_INSERT, Statement.RETURN_GENERATED_KEYS);
-                stmt.setString(1, curtirfoto.getTexto());
-                stmt.setDate(2, curtirfoto.getDtComentario());
+                stmt.setDate(1, curtirfoto.getDtCurtir());
 
                 stmt.executeUpdate();
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -37,10 +39,9 @@ public class CurtirFotoDao {
             } else {
                 
                 stmt = conn.prepareStatement(QUERY_UPDATE);
-                stmt.setString(1, curtirfoto.getTexto());
-                stmt.setDate(2, curtirfoto.getDtComentario());
+                stmt.setDate(1, curtirfoto.getDtCurtir());
                 stmt.executeUpdate();
-                resultado = curtirfoto.getIdComentario();
+                resultado = curtirfoto.getIdFoto();
             }
 
             conn.close();
@@ -63,11 +64,10 @@ public class CurtirFotoDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
-            String QUERY_DELETE = "delete from COMENTARIO_FOTO where IDCOMENTARIO_FOTO = ?";
+            String QUERY_DELETE = "delete from CURTIR_FOTO where IDFOTO = ?";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
-                stmt.setString(1, curtirfoto.getTexto());
-                stmt.setDate(2, curtirfoto.getDtComentario());
+                stmt.setDate(1, curtirfoto.getDtCurtir());
 
             stmt.executeUpdate();
             conn.close();
@@ -89,7 +89,7 @@ public class CurtirFotoDao {
         
         try {
 
-            String QUERY_DETALHE = "select * from COMENTARIO_FOTO where IDCOMENTARIO_FOTO = ?";
+            String QUERY_DETALHE = "select * from CURTIR_FOTO where IDFOTO = ?";
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
@@ -102,9 +102,8 @@ public class CurtirFotoDao {
 
             while (rs.next()) {
                 curtirfoto = new CurtirFoto();
-                curtirfoto.setIdComentario(rs.getInt("IDCOMENTARIO_FOTO"));
-                curtirfoto.setTexto(rs.getString("TEXTO"));
-                curtirfoto.setDtComentario(rs.getDate("DT_COMENTARIO"));
+                curtirfoto.setIdFoto(rs.getInt("IDFOTO"));
+                curtirfoto.setDtCurtir(rs.getDate("DT_CURTIR"));
             }
             conn.close();
 
@@ -121,7 +120,7 @@ public class CurtirFotoDao {
     public List<CurtirFoto> listar() {
         List<CurtirFoto> lista = new ArrayList<CurtirFoto>();
         try {
-            String QUERY_DETALHE = "select * from COMENTARIO_FOTO";
+            String QUERY_DETALHE = "select * from CURTIR_FOTO";
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
@@ -132,9 +131,8 @@ public class CurtirFotoDao {
 
             while (rs.next()) {
                 CurtirFoto curtirfoto = new CurtirFoto();
-                curtirfoto.setIdComentario(rs.getInt("IDCOMENTARIO_FOTO"));
-                curtirfoto.setTexto(rs.getString("TEXTO"));
-                curtirfoto.setDtComentario(rs.getDate("DT_COMENTARIO"));
+                curtirfoto.setIdFoto(rs.getInt("IDFOTO"));
+                curtirfoto.setDtCurtir(rs.getDate("DT_CURTIR"));
                 lista.add(curtirfoto);
             }
             conn.close();
