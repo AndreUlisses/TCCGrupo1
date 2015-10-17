@@ -20,8 +20,8 @@ public class CategoriaDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
-            String QUERY_INSERT = "insert into CATEGORIA (idCategoria, nome, descricao) values (?, ?, ?)";
-            String QUERY_UPDATE = "update CATEGORIA set nome = ?, descricao = ? where idCategoria = ? ";
+            String QUERY_INSERT = "insert into CATEGORIA (IDCATEGORIA, NOME, DESCRICAO) values (?, ?, ?)";
+            String QUERY_UPDATE = "update CATEGORIA set NOME = ?, DESCRICAO = ? where IDCATEGORIA = ? ";
 
             if (categoria.getIdCategoria()== null) {
                 
@@ -68,7 +68,7 @@ public class CategoriaDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
-            String QUERY_DELETE = "delete from CATEGORIA where idCategoria = ?";
+            String QUERY_DELETE = "delete from CATEGORIA where IDCATEGORIA = ?";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
             stmt.setInt(1, categoria.getIdCategoria());
@@ -93,7 +93,7 @@ public class CategoriaDao {
         
         try {
 
-            String QUERY_DETALHE = "select * from CATEGORIA where idCategoria = ?";
+            String QUERY_DETALHE = "select * from CATEGORIA where IDCATEGORIA = ?";
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
@@ -106,9 +106,9 @@ public class CategoriaDao {
 
             while (rs.next()) {
                 categoria = new Categoria();
-                categoria.setIdCategoria(rs.getInt("idCategoria"));
-                categoria.setNome(rs.getString("nome"));
-                categoria.setDescricao(rs.getString("descricao"));
+                categoria.setIdCategoria(rs.getInt("IDCATEGORIA"));
+                categoria.setNome(rs.getString("NOME"));
+                categoria.setDescricao(rs.getString("DESCRICAO"));
             }
             conn.close();
 
@@ -136,9 +136,9 @@ public class CategoriaDao {
 
             while (rs.next()) {
                 Categoria categoria = new Categoria();
-                categoria.setIdCategoria(rs.getInt("idCategoria"));
-                categoria.setNome(rs.getString("nome"));
-                categoria.setDescricao(rs.getString("descricao"));
+                categoria.setIdCategoria(rs.getInt("IDCATEGORIA"));
+                categoria.setNome(rs.getString("NOME"));
+                categoria.setDescricao(rs.getString("DESCRICAO"));
                 lista.add(categoria);
             }
             conn.close();
