@@ -20,8 +20,8 @@ public class ComentarLocalidadeDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
             
-            String QUERY_INSERT = "insert into COMENTAR_LOCALIDADE (IDCOMENTARIO_LOCALIDADE,IDLOCALIDADE,IDUSUARIO,TEXTO,DTCOMENTARIO) values (?, ?, ?, ?, ?)";
-            String QUERY_UPDATE = "update COMENTAR_LOCALIDADE set IDLOCALIDADE = ?, IDUSUARIO = ?, TEXTO = ?, DTCOMENTARIO = ? where IDCOMENTARIO_LOCALIDADE = ? ";
+            String QUERY_INSERT = "insert into COMENTAR_LOCALIDADE (IDCOMENTARIO_LOCALIDADE,IDLOCALIDADE,IDUSUARIO,TEXTO,DT_COMENTARIO) values (?, ?, ?, ?, ?)";
+            String QUERY_UPDATE = "update COMENTAR_LOCALIDADE set IDLOCALIDADE = ?, IDUSUARIO = ?, TEXTO = ?, DT_COMENTARIO = ? where IDCOMENTARIO_LOCALIDADE = ? ";
 
             //verificar comparação
             if (comentarlocalidade.getIdComentario_Localidade()== null) {
@@ -109,7 +109,7 @@ public class ComentarLocalidadeDao {
                 comentarlocalidade = new ComentarLocalidade();
                 comentarlocalidade.setIdComentario_Localidade(rs.getInt("IDCOMENTARIO_LOCALIDADE"));
                 comentarlocalidade.setTexto(rs.getString("TEXTO"));
-                comentarlocalidade.setDtComentario(rs.getDate("DTCOMENTARIO"));
+                comentarlocalidade.setDtComentario(rs.getDate("DT_COMENTARIO"));
             }
             conn.close();
 
@@ -139,7 +139,7 @@ public class ComentarLocalidadeDao {
                 ComentarLocalidade comentarlocalidade = new ComentarLocalidade();
                 comentarlocalidade.setIdComentario_Localidade(rs.getInt("IDCOMENTARIO_LOCALIDADE"));
                 comentarlocalidade.setTexto(rs.getString("TEXTO"));
-                comentarlocalidade.setDtComentario(rs.getDate("DTCOMENTARIO"));
+                comentarlocalidade.setDtComentario(rs.getDate("DT_COMENTARIO"));
                 lista.add(comentarlocalidade);
             }
             conn.close();
