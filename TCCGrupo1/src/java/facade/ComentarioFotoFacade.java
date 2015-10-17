@@ -1,8 +1,7 @@
 package facade;
 
-import dao.ComentarLocalidadeDao;
-import entidade.ComentarLocalidade;
-import entidade.Localidade;
+import dao.ComentarioFotoDao;
+import entidade.ComentarioFoto;
 import entidade.Usuario;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -13,19 +12,17 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ComentarLocalidadeFacade {
+public class ComentarioFotoFacade {
     
-       private ComentarLocalidade requestForm(HttpServletRequest request) {
+    private ComentarioFoto requestForm(HttpServletRequest request) {
 
-        ComentarLocalidade retorno = new ComentarLocalidade();
+        ComentarioFoto retorno = new ComentarioFoto();
 
-        if ((request.getParameter("txtIdComentario_Localidade") != null) && (!request.getParameter("txtIdComentario_Localidade").equals(""))) {
-            retorno.setIdComentario_Localidade(Integer.parseInt(request.getParameter("txtIdComentario_Localidade")));
+        if ((request.getParameter("txtIdComentario") != null) && (!request.getParameter("txtIdComentario").equals(""))) {
+            retorno.setIdComentario(Integer.parseInt(request.getParameter("txtIdComentario")));
         }
-        if ((request.getParameter("txtIdLocalidade") != null) && (!request.getParameter("txtIdLocalidade").equals(""))) {
-            Localidade localidade = new Localidade();
-            localidade.setIdLocalidade(Integer.parseInt(request.getParameter("txtIdLocalidade")));
-            retorno.setIdLocalidade(localidade);
+        if ((request.getParameter("txtIdFoto") != null) && (!request.getParameter("txtIdFoto").equals(""))) {
+            retorno.setIdFoto(Integer.parseInt(request.getParameter("txtIdFoto")));
         }
         if ((request.getParameter("txtIdUsuario") != null) && (!request.getParameter("txtIdUsuario").equals(""))) {
             Usuario usuario = new Usuario();
@@ -51,20 +48,20 @@ public class ComentarLocalidadeFacade {
     ;    
     
     public void incluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher rd = request.getRequestDispatcher("ComentarLocalidadeIncluir.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("ComentarioFotoIncluir.jsp");
         rd.forward(request, response);
     }
 
     public void editar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ComentarLocalidade comentarlocalidade = new ComentarLocalidade();
-        ComentarLocalidadeDao comentarLocalidadeDao = new ComentarLocalidadeDao();
+        ComentarioFoto comentariofoto = new ComentarioFoto();
+        ComentarioFotoDao comentarioFotoDao = new ComentarioFotoDao();
 
-        comentarlocalidade = requestForm(request);
-        comentarlocalidade = comentarLocalidadeDao.editar(comentarlocalidade.getIdComentario_Localidade());
+        comentariofoto = requestForm(request);
+        comentariofoto = comentarioFotoDao.editar(comentariofoto.getIdComentario());
 
-        if (comentarlocalidade != null) {
-            request.setAttribute("comentarlocalidade", comentarlocalidade);
-            RequestDispatcher rd = request.getRequestDispatcher("ComentarLocalidadeEditar.jsp");
+        if (comentariofoto != null) {
+            request.setAttribute("comentariofoto", comentariofoto);
+            RequestDispatcher rd = request.getRequestDispatcher("ComentarioFotoEditar.jsp");
             rd.forward(request, response);
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
@@ -73,12 +70,12 @@ public class ComentarLocalidadeFacade {
     }
 
     public void salvar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ComentarLocalidade comentarlocalidade = new ComentarLocalidade();
-        ComentarLocalidadeDao comentarLocalidadeDao = new ComentarLocalidadeDao();
+        ComentarioFoto comentariofoto = new ComentarioFoto();
+        ComentarioFotoDao comentarioFotoDao = new ComentarioFotoDao();
 
-        comentarlocalidade = requestForm(request);
+        comentariofoto = requestForm(request);
 
-        if (comentarLocalidadeDao.salvar(comentarlocalidade) == -1) {
+        if (comentarioFotoDao.salvar(comentariofoto) == -1) {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
             rd.forward(request, response);
         } else {
@@ -88,12 +85,12 @@ public class ComentarLocalidadeFacade {
     }
 
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ComentarLocalidade comentarlocalidade = new ComentarLocalidade();
-        ComentarLocalidadeDao comentarLocalidadeDao = new ComentarLocalidadeDao();
+        ComentarioFoto comentariofoto = new ComentarioFoto();
+        ComentarioFotoDao comentarioFotoDao = new ComentarioFotoDao();
 
-        comentarlocalidade = requestForm(request);
+        comentariofoto = requestForm(request);
 
-        if (comentarLocalidadeDao.excluir(comentarlocalidade)) {
+        if (comentarioFotoDao.excluir(comentariofoto)) {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemOk.jsp");
             rd.forward(request, response);
         } else {
@@ -103,14 +100,14 @@ public class ComentarLocalidadeFacade {
     }
 
     public void listar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ComentarLocalidadeDao comentarLocalidadeDao = new ComentarLocalidadeDao();
+       
+        ComentarioFotoDao comentarioFotoDao = new ComentarioFotoDao();
+        List<ComentarioFoto> comentarfoto = new ArrayList<ComentarioFoto>();
+        comentarfoto = comentarioFotoDao.listar();
 
-        List<ComentarLocalidade> comentarlocalidade = new ArrayList<ComentarLocalidade>();
-        comentarlocalidade = comentarLocalidadeDao.listar();
-
-        if (comentarlocalidade != null) {
-            request.setAttribute("comentarlocalidade", comentarlocalidade);
-            RequestDispatcher rd = request.getRequestDispatcher("ComentarLocalidadeListar.jsp");
+        if (comentarfoto != null) {
+            request.setAttribute("comentarfoto", comentarfoto);
+            RequestDispatcher rd = request.getRequestDispatcher("ComentarFotoListar.jsp");
             rd.forward(request, response);
         } else {
             RequestDispatcher rd = request.getRequestDispatcher("MensagemErro.jsp");
