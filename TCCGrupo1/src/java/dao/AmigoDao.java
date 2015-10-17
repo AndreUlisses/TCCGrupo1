@@ -64,7 +64,7 @@ public class AmigoDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
-            String QUERY_DELETE = "DELETE FRIM AMIGO WHERE IDAMIGO = ? AND IDUSUARIO = ? ";
+            String QUERY_DELETE = "DELETE FROM AMIGO WHERE IDAMIGO = ? AND IDUSUARIO = ? ";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
             stmt.setInt(1, amigo.getAmigo().getId());
