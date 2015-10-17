@@ -1059,8 +1059,8 @@
   }
   .navbar-inverse .nav-collapse .navbar-form,
   .navbar-inverse .nav-collapse .navbar-search {
-    border-top-color: #111111;
-    border-bottom-color: #111111;
+    border-top-color: #87CEEB;
+    border-bottom-color: #87CEEB;
   }
   .navbar .nav-collapse .nav.pull-right {
     float: none;

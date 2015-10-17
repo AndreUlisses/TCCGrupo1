@@ -35,7 +35,7 @@ audio:not([controls]) {
 
 html {
   font-size: 100%;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-s-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 
@@ -226,17 +226,17 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #333333;
-  background-color: #ffffff;
+  color: #000000; /*COR DE TODAS AS LETRAS DA PÁGINA*/
+  background-color: #ffffff; /*COR DE FUNDO DA PÁGINA*/
 }
 
 a {
-  color: #0088cc;
+  color: #000000; /*COR DO TÍTULO: COMPARTILHE, EXPLORE E DESCUBRA*/
   text-decoration: none;
 }
 
 a:hover {
-  color: #005580;
+  color: #000000;
   text-decoration: underline;
 }
 
@@ -703,11 +703,11 @@ a.text-error:hover {
 }
 
 a.text-info:hover {
-  color: #2d6987;
+  color: #000000;
 }
 
 .text-success {
-  color: #468847;
+  color: #4688407;
 }
 
 a.text-success:hover {
@@ -4295,7 +4295,7 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
-  color: #777777;
+  color: #ffffff;
   text-shadow: 0 1px 0 #ffffff;
 }
 
@@ -5696,7 +5696,7 @@ a.inner-border:hover span {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   vertical-align: baseline;
-  background-color: #999999;
+  background-color: #006dcc;
 }
 
 .label {
@@ -6134,7 +6134,7 @@ a.badge:hover {
 .carousel-caption h4,
 .carousel-caption p {
   line-height: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .carousel-caption h4 {
