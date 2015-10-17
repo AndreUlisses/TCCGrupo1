@@ -1,7 +1,7 @@
 package dao;
 
 import conexao.ConnectionManager;
-import entidade.Localidade;
+import entidade.Foto;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocalidadeDao {
+public class FotoDao {
     
-    public int salvar(Localidade localidade) {
+    public int salvar(Foto foto) {
         
         //inicializando o retorno da função, caso tenha algum problema deve ser retornar o valor -1
         int resultado = -1;
@@ -20,16 +20,14 @@ public class LocalidadeDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
             
-            String QUERY_INSERT = "insert into LOCALIDADE (IDLOCALIDADE,IDCATEGORIA,IDUSUARIO,NOME,DESCRICAO,DTLOCALIDADE) values (?, ?, ?, ?, ?, ?)";
-            String QUERY_UPDATE = "update LOCALIDADE set IDCATEGORIA = ?, IDUSUARIO = ?, NOME = ?, DESCRICAO = ?, DTLOCALIDADE = ? where IDLOCALIDADE = ? ";
+            String QUERY_INSERT = "insert into FOTO (IDFOTO,IDLOCALIDADE,IDUSUARIO,DESCRICAO) values (?, ?, ?, ?)";
+            String QUERY_UPDATE = "update FOTO set IDLOCALIDADE = ?, IDUSUARIO = ?, DESCRICAO = ?, where IDFOTO = ? ";
 
             //verificar comparação
-            if (localidade.getIdLocalidade()== null) {
+            if (foto.getIdFoto()== null) {
                 
                 stmt = conn.prepareStatement(QUERY_INSERT, Statement.RETURN_GENERATED_KEYS);
-                stmt.setString(1, localidade.getNome());
-                stmt.setString(2, localidade.getDescricao());
-                stmt.setDate(3, localidade.getDtLocalidade());
+                stmt.setString(1, foto.getDescricao());
 
                 stmt.executeUpdate();
                 ResultSet rs = stmt.getGeneratedKeys();
@@ -42,12 +40,10 @@ public class LocalidadeDao {
             } else {
                 
                 stmt = conn.prepareStatement(QUERY_UPDATE);
-                stmt.setString(1, localidade.getNome());
-                stmt.setString(2, localidade.getDescricao());
-                stmt.setDate(3, localidade.getDtLocalidade());
+                stmt.setString(1, foto.getDescricao());
 
                 stmt.executeUpdate();
-                resultado = localidade.getIdLocalidade();
+                resultado = foto.getIdFoto();
             }
 
             conn.close();
@@ -62,7 +58,7 @@ public class LocalidadeDao {
         return resultado;
     }
 
-    public boolean excluir(Localidade localidade) {
+    public boolean excluir(Foto foto) {
 
         boolean resultado = false;
 
@@ -70,10 +66,10 @@ public class LocalidadeDao {
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
-            String QUERY_DELETE = "delete from LOCALIDADE where IDLOCALIDADE = ?";
+            String QUERY_DELETE = "delete from FOTO where IDFOTO = ?";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
-            stmt.setInt(1, localidade.getIdLocalidade());
+            stmt.setInt(1, foto.getIdFoto());
 
             stmt.executeUpdate();
             conn.close();
@@ -89,13 +85,13 @@ public class LocalidadeDao {
         return resultado;
     }
 
-    public Localidade editar(int id) {
+    public Foto editar(int id) {
 
-        Localidade localidade = new Localidade();
+        Foto foto = new Foto();
         
         try {
 
-            String QUERY_DETALHE = "select * from LOCALIDADE where IDLOCALIDADE = ?";
+            String QUERY_DETALHE = "select * from FOTO where IDFOTO = ?";
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
@@ -107,27 +103,26 @@ public class LocalidadeDao {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                localidade = new Localidade();
-                localidade.setIdLocalidade(rs.getInt("IDLOCALIDADE"));
-                localidade.setNome(rs.getString("NOME"));
-                localidade.setDescricao(rs.getString("DESCRICAO"));
+                foto = new Foto();
+                foto.setIdFoto(rs.getInt("IDFOTO"));
+                foto.setDescricao(rs.getString("DESCRICAO"));
             }
             conn.close();
 
         } catch (Exception ex) {
             
             ex.printStackTrace();
-            localidade = null;
+            foto = null;
             
         }
         
-        return localidade;
+        return foto;
     }
 
-    public List<Localidade> listar() {
-        List<Localidade> lista = new ArrayList<Localidade>();
+    public List<Foto> listar() {
+        List<Foto> lista = new ArrayList<Foto>();
         try {
-            String QUERY_DETALHE = "select * from LOCALIDADE";
+            String QUERY_DETALHE = "select * from FOTO";
             PreparedStatement stmt = null;
             Connection conn = ConnectionManager.getConnection();
 
@@ -137,11 +132,10 @@ public class LocalidadeDao {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                Localidade localidade = new Localidade();
-                localidade.setIdLocalidade(rs.getInt("IDLOCALIDADE"));
-                localidade.setNome(rs.getString("NOME"));
-                localidade.setDescricao(rs.getString("DESCRICAO"));
-                lista.add(localidade);
+                Foto foto = new Foto();
+                foto.setIdFoto(rs.getInt("IDFOTO"));
+                foto.setDescricao(rs.getString("DESCRICAO"));
+                lista.add(foto);
             }
             conn.close();
 
