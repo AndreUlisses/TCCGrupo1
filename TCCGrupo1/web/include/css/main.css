@@ -1,6 +1,6 @@
 /* Configurações da imagem do logo */
 #head {
-    background:#181015 url( ../images/logoinicial0.jpg) no-repeat; 
+    background:#181015 url(../img/logoinicial0.jpg) no-repeat; 
     background-size: cover; 
     min-height:520px; 
     text-align: center; 
