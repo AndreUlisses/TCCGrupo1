@@ -21,7 +21,8 @@
 
 
 #head .lead { 
-   font-family:"From Where You Are" ,Open sans, Helvetica, Arial;
+    margin-left: 25px;
+    font-family:"From Where You Are" ,Open sans, Helvetica, Arial;
     font-size:85px;
     margin-bottom:6px; 
     color:#191919; 
@@ -71,6 +72,7 @@
         padding-top:160px; }
     #head .lead {
         font-size: 34px;
+        font-family: From Where You Are;
     }
 }
 
