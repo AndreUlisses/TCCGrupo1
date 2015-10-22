@@ -1,6 +1,6 @@
 /* Configurações da imagem do logo */
 #head {
-    background:#181015 url(../img/logoinicial0.jpg) no-repeat; 
+/*    background:#181015 url(../img/logoinicial0.jpg) no-repeat; */
     background-size: cover; 
     min-height:520px; 
     text-align: center; 
@@ -21,7 +21,7 @@
 
 
 #head .lead { 
-   font-family:"Open sans", Helvetica, Arial;
+   font-family:"From Where You Are" ,Open sans, Helvetica, Arial;
     font-size:85px;
     margin-bottom:6px; 
     color:#191919; 
