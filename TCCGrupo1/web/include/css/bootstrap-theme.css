@@ -3,10 +3,10 @@
 /*******************************/
 .navbar-inverse { 
     border-radius: 0; 
-    background: #009999; /*Cor do fundo da barra de navegação*/
-    border-bottom: 1px solid #009999; /*Cor da borda*/
-    min-height:100px; 
-    padding-top:25px; 
+    background: #900; /*Cor do fundo da barra de navegação*/
+    border-bottom: 2px solid #900; /*Cor da borda*/
+    min-height: 60px;
+    padding-top: 10px; 
     margin-bottom:0;
 }
 
@@ -17,7 +17,7 @@
 @media (max-width: 767px) {
     .navbar-inverse 
     {
-        background: #009999; /*Cor da barra de navegação responsiva*/
+        background: #900; /*Cor da barra de navegação responsiva*/  /*009999*/
     }
 }
 
@@ -32,12 +32,12 @@
 .navbar-inverse .navbar-nav > .active > a:hover, 
 .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff; 
-    background:#0A7474 ; 
+    background:#740A0A ; 
 }
 
 
 .navbar-inverse .navbar-nav > .open > a{
-    background: #0A7474;
+    background: #740A0A;
     color:white; 
 }
 
@@ -46,14 +46,14 @@
 .navbar-inverse .navbar-nav>li>a:focus,
 .navbar-inverse .navbar-nav>.open>a:hover, 
 .navbar-inverse .navbar-nav>.open>a:focus { 
-    background:#0A7474;
+    background:#740A0A;
     color: #ffffff; 
 }
 
 
 
 .navbar-inverse .navbar-nav > .active > a { 
-    background: #0A7474;
+    background: #740A0A;
     color:white;
 }
 
@@ -85,7 +85,7 @@
 
 
 .navbar-nav .dropdown-menu > li > a {
-    color: #009999;
+    color: #900;
     padding:7px 20px; 
 }
 
@@ -200,8 +200,8 @@
 .btn-action,
 .btn-primary { 
     color:#FFEFD7; 
-    background-image: -webkit-linear-gradient(top, #FF9B22 0%, #FF8C00 100%); 
-    background-image: linear-gradient(to bottom, #009999 0%, #00CDCD 100%); 
+    background-image: -webkit-linear-gradient(top, #900 0%, #AD0000 100%); 
+    background-image: linear-gradient(to bottom, #900 0%, #AD0000 100%); 
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffFF9B22', endColorstr='#ffFF8C00', GradientType=0); 
     filter: progid:DXImageTransform.Microsoft.gradient(enabled = false); 
     background-repeat: repeat-x; 
@@ -213,12 +213,12 @@
 .btn-action:hover,
 .btn-action:focus {
     color:#fff; 
-    background: #0A7474;
+    background: #740A0A;
 }
 
 
 .btn-action:active {
-    background: #0A7474;
+    background: #740A0A;
 }
 
 
